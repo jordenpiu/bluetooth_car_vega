@@ -158,7 +158,6 @@ void main() {
 
 	printf("\n\r Setting up Bluetooth Device \n\r");
 	uart_set_baud_rate(UART_1,9600,40000000);
-	start();
 
 while(1){
 		memset(str,0,sizeof(str));
@@ -174,11 +173,12 @@ while(1){
 			send_string("LED OFF\n");
 			GPIO_write_pin(22,OFF_LED);
 		}*/
-		int d=strncmp(str,"F",1);
+		send_string("Sending::");
+		send_string(str);	
+		send_string(":::\n");
+		print(":::%s:::",str)
 		if(strlen(str)>0){
-			printf("cmp=%d",d);
-		}
-		if(strncmp(str,"F",1)==0)
+		if(strncmp(str,"F",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			//moveForward();                //this function is not getting executed
@@ -189,25 +189,25 @@ while(1){
 			send_string("FORWARD\n"); //even these lines are too not getting executed
 			send_string("F\n"); //F GETS PRINTED WHEN F BUTTON ON THE BLUETOOTH APP IS PRESSED.
 		}
-		else if(strncmp(str,"L",1)==0)
+		else if(strncmp(str,"L",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveLeft();
 			send_string("L\n");
 		}
-		else if(strncmp(str,"R",1)==0)
+		else if(strncmp(str,"R",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveRight();
 			send_string("R\n");
 		}
-		esle if(strncmp(str,"B",1)==0)
+		else if(strncmp(str,"B",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveBack();
 			send_string("B\n");
 		}
-		else if (strncmp(str,"S",1)==0)
+		else if (strncmp(str,"S",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveHalt();
@@ -220,6 +220,8 @@ while(1){
 			GPIO_write_pin(22,OFF_LED);
 			
 		}	
+			
+		}
 		
 	}
 	
