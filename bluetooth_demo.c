@@ -163,7 +163,7 @@ void main() {
 while(1){
 		memset(str,0,sizeof(str));
 		receive_string(str);	
-		printf("received:::%s:::", str);
+		printf("received:::%s:::%d::%d::%d", str,strncmp(str,"F",2),strncmp(str,"F",1),strcmp(str,"F"));
 		/*if(strncmp(str,"ON",2)==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
