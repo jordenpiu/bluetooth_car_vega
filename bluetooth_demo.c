@@ -189,25 +189,25 @@ while(1){
 			send_string("FORWARD\n"); //even these lines are too not getting executed
 			send_string("F\n"); //F GETS PRINTED WHEN F BUTTON ON THE BLUETOOTH APP IS PRESSED.
 		}
-		else if(strncmp(str,"L",2)==0)
+		else if(strcmp(str,"L")==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveLeft();
 			send_string("L\n");
 		}
-		else if(strncmp(str,"R",2)==0)
+		else if(strcmp(str,"R")==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveRight();
 			send_string("R\n");
 		}
-		else if(strncmp(str,"B",2)==0)
+		else if(strcmp(str,"B")==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveBack();
 			send_string("B\n");
 		}
-		else if (strncmp(str,"S",2)==0)
+		else if (strcmp(str,"S")==0)
 		{	
 			GPIO_write_pin(22,ON_LED);
 			moveHalt();
