@@ -174,7 +174,7 @@ while(1){
 			send_string("LED OFF\n");
 			GPIO_write_pin(22,OFF_LED);
 		}*/
-		int d=strncmp(str,"F");
+		int d=strncmp(str,"F",1);
 		printf("cmp=%d",d);
 		if(strncmp(str,"F",1)==0)
 		{	
